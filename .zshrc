@@ -94,6 +94,34 @@ alias docker="podman"
 alias docker-compose="podman-compose"
 
 # Functions
+## System
+function preexec() {
+  timer=$(($(gdate +%s%0N)/1000000))
+}
+
+function precmd() {
+  if [ $timer ]; then
+    now=$(($(gdate +%s%0N)/1000000))
+    elapsed=$(($now-$timer))
+
+    if [ $elapsed -ge 60000 ]; then
+      # Calculate minutes and remaining seconds
+      elapsed_minutes=$(($elapsed/60000))
+      remaining_seconds=$(($elapsed%60000/1000))
+      export RPROMPT="%F{cyan}${elapsed_minutes}m${remaining_seconds}s %{$reset_color%}"
+    elif [ $elapsed -ge 1000 ]; then
+      # Convert milliseconds to seconds
+      elapsed_seconds=$(($elapsed/1000))
+      export RPROMPT="%F{cyan}${elapsed_seconds}s %{$reset_color%}"
+    else
+      export RPROMPT="%F{cyan}${elapsed}ms %{$reset_color%}"
+    fi
+
+    unset timer
+  fi
+}
+
+## Invokable
 gitig() {
   for arg in "$@"
   do
