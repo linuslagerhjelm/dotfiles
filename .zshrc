@@ -77,6 +77,7 @@ plugins=(
   kubectl
   podman
   zsh-syntax-highlight
+  zsh-npm-scripts-autocomplete
 )
 
 source $ZSH/oh-my-zsh.sh
