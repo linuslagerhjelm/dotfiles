@@ -81,6 +81,10 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source $ZSH_CUSTOM/plugins/zsh-git-prompt/zshrc.sh
+
+PROMPT="%(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[red]%}%1{➜%} ) %{$fg[cyan]%}%c%{$reset_color%}"
+PROMPT+=' $(git_super_status) '
 
 # Variables
 
