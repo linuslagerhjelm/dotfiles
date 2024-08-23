@@ -91,8 +91,7 @@ alias whatsmyip="curl 'https://api.ipify.org'"
 alias gradlew="./gradlew"
 alias cls="clear"
 alias uuid="python3 -c 'import uuid; print(uuid.uuid4())'"
-alias docker="podman"
-alias docker-compose="podman-compose"
+alias ls="ls -1F --color"
 
 # Functions
 ## System
