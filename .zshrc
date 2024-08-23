@@ -76,6 +76,7 @@ plugins=(
   docker
   kubectl
   podman
+  zsh-syntax-highlight
 )
 
 source $ZSH/oh-my-zsh.sh
