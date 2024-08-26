@@ -76,7 +76,11 @@ plugins=(
   docker
   kubectl
   podman
+  you-should-use
+  z
+  virtualenv
   zsh-syntax-highlight
+  zsh-bat
   zsh-npm-scripts-autocomplete
 )
 
@@ -97,6 +101,7 @@ alias gradlew="./gradlew"
 alias cls="clear"
 alias uuid="python3 -c 'import uuid; print(uuid.uuid4())'"
 alias ls="ls -1F --color"
+alias cat="bat"
 
 # Functions
 ## System
