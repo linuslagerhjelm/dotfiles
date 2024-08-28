@@ -79,7 +79,7 @@ plugins=(
   you-should-use
   z
   virtualenv
-  zsh-syntax-highlight
+  zsh-syntax-highlighting
   zsh-bat
   zsh-npm-scripts-autocomplete
 )
