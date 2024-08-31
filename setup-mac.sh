@@ -14,16 +14,11 @@ else
   echo "Homebrew already installed ✅"
 fi
 
+echo "Installing core utils"
+brew install coreutils
+
 echo "Installing raycast"
 brew install --cask raycast
-
-echo "Checking for sdkman"
-if ! type "sdk" > /dev/null; then
-  echo "sdkman not found. Installing...."
-  curl -s "https://get.sdkman.io" | bash
-else
-  echo "sdkman already installed ✅"
-fi
 
 echo "Checking for bat"
 if ! type "bat" > /dev/null; then
@@ -34,10 +29,26 @@ else
 fi
 
 echo "Running vim installation script"
-./dotvim/install.sh
+cd dotvim
+./install.sh
+cd ..
 echo "Done!"
 
+echo "Downloading terminal theme in this folder:"
+git clone https://github.com/dracula/terminal-app.git
+
 echo "Installing zsh config"
+chmod +x install-zshrc.sh
 ./install-zshrc.sh
 
+
+echo "Checking for sdkman"
+if ! type "sdk" > /dev/null; then
+  echo "sdkman not found. Installing...."
+  curl -s "https://get.sdkman.io" | bash
+else
+  echo "sdkman already installed ✅"
+fi
+
 echo "✨ Installation complete ✨"
+
