@@ -103,6 +103,10 @@ alias uuid="python3 -c 'import uuid; print(uuid.uuid4())'"
 alias ls="ls -1F --color"
 alias cat="bat"
 
+# Fix to work around an annoying history bug in zsh-autosuggestions
+bindkey '^[OA' up-line-or-history
+bindkey '^[OB' down-line-or-history
+
 # Functions
 ## System
 function preexec() {
